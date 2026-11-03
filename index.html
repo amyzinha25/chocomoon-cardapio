@@ -66,6 +66,15 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}
 .footer-wa-icon{width:32px;height:32px;flex-shrink:0}.footer-arrow{font-size:24px;margin-left:2px}
 @media(max-width:600px){.bottom{padding:7px 5px}.footer-shell{gap:7px;padding:8px 7px;border-radius:13px}.footer-bag-icon{width:32px;height:32px}.bottom .bag-info{gap:5px}.bottom .bag-info strong{font-size:11px;gap:4px}.bag-count{min-width:17px;height:17px;font-size:10px}.bottom .bag-info small{font-size:10px}.footer-total{padding-left:7px;min-width:68px}.footer-total small{font-size:10px}.footer-total strong{font-size:14px}.bottom .primary{min-width:0;flex:0 0 43%;padding:8px 5px;gap:5px;font-size:10px;border-radius:12px}.footer-wa-icon{width:22px;height:22px}.footer-arrow{font-size:14px;margin-left:0}}
 @media(max-width:360px){.footer-bag-icon{width:26px;height:26px}.footer-total{min-width:60px}.footer-total strong{font-size:12px}.bottom .primary{flex-basis:42%;font-size:9px}}
+</style><style>
+/* Apenas ícones de seções e controles de quantidade na sacola */
+.section-title{display:inline-flex;align-items:center;gap:9px}
+.section-title .cookie-pair-icon,.group-heading .cookie-pair-icon{width:1.5em;height:1.3em;vertical-align:middle}
+.cart-product{min-width:0;flex:1}
+.cart-controls{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.cart-controls button{border:1px solid #e8a75e;background:#ffe4bd;color:#51220d;border-radius:50%;width:33px;height:33px;font-size:21px;font-weight:700;line-height:1}
+.cart-controls span{font-weight:800;min-width:15px;text-align:center}
+.cart-controls .cart-remove-all{width:auto;height:auto;border-radius:12px;padding:8px 10px;font-size:12px;background:#fff2e4;color:#853a25}
 </style></head>
 <body>
 <header class="hero" role="img" aria-label="ChocoMoon — Cookies artesanais, macios por dentro, com a crocância perfeita."></header>
@@ -93,17 +102,26 @@ let categoria='regular';let sacola={};try{sacola=JSON.parse(localStorage.getItem
 const qtd=id=>Math.max(0,Number(sacola[id])||0);const total=()=>produtos.reduce((s,p)=>s+qtd(p.id)*p.preco,0);const itens=()=>produtos.reduce((s,p)=>s+qtd(p.id),0);
 function atualizar(id,delta){sacola[id]=Math.max(0,qtd(id)+delta);localStorage.setItem('chocomoon-sacola',JSON.stringify(sacola));render();if(document.getElementById('overlay').classList.contains('show'))renderCart()}
 function render(){
- document.getElementById('heading').textContent=categoria==='regular'?'Cookies 70 g':'Bebidas & Combos';
+ document.getElementById('heading').innerHTML=categoria==='regular'?`<svg class="ui-icon cookie-pair-icon" viewBox="0 0 48 40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="19" cy="18" r="15" fill="#E7A65B" stroke="#4D2412" stroke-width="2.3"/><circle cx="33" cy="23" r="13" fill="#F3BD75" stroke="#4D2412" stroke-width="2.3"/><path d="M22 6a15 15 0 0 1 11 22" fill="none" stroke="#4D2412" stroke-width="2.1"/><g fill="#65351B"><circle cx="11" cy="15" r="2.5"/><circle cx="22" cy="11" r="2.2"/><circle cx="17" cy="25" r="2.4"/><circle cx="25" cy="19" r="2"/><circle cx="34" cy="17" r="2.1"/><circle cx="39" cy="27" r="2.4"/><circle cx="29" cy="29" r="2"/></g></svg> Cookie Tradicional 70g`:'Bebidas & Combos';
  document.getElementById('description').textContent=categoria==='regular'?'Escolha seus cookies favoritos e aproveite os preços especiais.':'Coca-Cola avulsa ou combos com cookies de 70 g.';
  document.getElementById('products').innerHTML=produtos.filter(p=>p.cat===categoria).map((p,i)=>{
  const economia=p.antigo?Math.round((p.antigo-p.preco)*100)/100:0;
- const titulo=categoria==='bebidas'&&i===0?'<h3 class="group-heading"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.5 13h-11L5 8Z"/><path d="M3.5 8h17M10 8l4-6h5"/><path d="M8 12h8"/></svg> Bebidas avulsas</h3>':categoria==='bebidas'&&i===2?'<h3 class="group-heading"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8.2" cy="8.4" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.7" cy="8.3" r="1.5" fill="currentColor" stroke="none"/><circle cx="9.5" cy="15.8" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="15" r="1" fill="currentColor" stroke="none"/></svg> Combos Cookie 70 g + Coca-Cola</h3>':'';
+ const titulo=categoria==='bebidas'&&i===0?'<h3 class="group-heading"><svg class="ui-icon cookie-pair-icon" viewBox="0 0 48 40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><circle cx="19" cy="18" r="15" fill="#E7A65B" stroke="#4D2412" stroke-width="2.3"/><circle cx="33" cy="23" r="13" fill="#F3BD75" stroke="#4D2412" stroke-width="2.3"/><path d="M22 6a15 15 0 0 1 11 22" fill="none" stroke="#4D2412" stroke-width="2.1"/><g fill="#65351B"><circle cx="11" cy="15" r="2.5"/><circle cx="22" cy="11" r="2.2"/><circle cx="17" cy="25" r="2.4"/><circle cx="25" cy="19" r="2"/><circle cx="34" cy="17" r="2.1"/><circle cx="39" cy="27" r="2.4"/><circle cx="29" cy="29" r="2"/></g></svg> Combos Cookie 70 g + Coca-Cola</h3>':'';
  return `${titulo}<article class="product ${p.cat}"><div class="pic"><img src="${p.foto}" alt="${p.nome}" loading="lazy"></div><div class="details"><h3>${p.nome}</h3><p>${p.desc}</p>${p.antigo?`<div class="old-price">${money(p.antigo)}</div>`:''}<div class="price">${money(p.preco)}</div>${economia?`<div class="saving">Economize ${money(economia)}</div>`:''}<div class="qty"><button aria-label="Remover uma unidade de ${p.nome}" data-id="${p.id}" data-delta="-1">−</button><span>${qtd(p.id)}</span><button aria-label="Adicionar uma unidade de ${p.nome}" data-id="${p.id}" data-delta="1">+</button></div></div></article>`}).join('');
  document.getElementById('summary').textContent=`${itens()} ${itens()===1?'item':'itens'}`;document.getElementById('bagCount').textContent=itens();document.getElementById('footerTotal').textContent=money(total());
  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===categoria));
 }
 document.getElementById('products').addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(b)atualizar(b.dataset.id,Number(b.dataset.delta))});document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{categoria=b.dataset.tab;render()}));
-function renderCart(){let selected=produtos.filter(p=>qtd(p.id));document.getElementById('cartItems').innerHTML=selected.length?selected.map(p=>`<div class="cart-row"><div><strong>${qtd(p.id)}× ${p.nome}</strong><small>${p.desc}</small></div><strong>${money(qtd(p.id)*p.preco)}</strong></div>`).join(''):'<div class="empty">Sua sacola está vazia. Adicione seus cookies favoritos!</div>';document.getElementById('cartTotal').textContent=money(total());document.getElementById('checkout').disabled=!selected.length}
+function renderCart(){
+ const selected=produtos.filter(p=>qtd(p.id));
+ document.getElementById('cartItems').innerHTML=selected.length?selected.map(p=>`<div class="cart-row"><div class="cart-product"><strong>${p.nome}</strong><small>${p.desc}</small><div class="cart-controls"><button type="button" data-cart-id="${p.id}" data-cart-action="minus" aria-label="Retirar uma unidade de ${p.nome}">−</button><span aria-live="polite">${qtd(p.id)}</span><button type="button" data-cart-id="${p.id}" data-cart-action="plus" aria-label="Adicionar uma unidade de ${p.nome}">+</button><button type="button" class="cart-remove-all" data-cart-id="${p.id}" data-cart-action="all" aria-label="Excluir todas as unidades de ${p.nome}">Excluir todas</button></div></div><strong>${money(qtd(p.id)*p.preco)}</strong></div>`).join(''):'<div class="empty">Sua sacola está vazia. Adicione seus cookies favoritos!</div>';
+ document.getElementById('cartTotal').textContent=money(total());document.getElementById('checkout').disabled=!selected.length;
+}
+document.getElementById('cartItems').addEventListener('click',e=>{
+ const button=e.target.closest('button[data-cart-id]');if(!button)return;
+ const id=button.dataset.cartId;const action=button.dataset.cartAction;
+ if(action==='all')atualizar(id,-qtd(id));else atualizar(id,action==='plus'?1:-1);
+});
 const overlay=document.getElementById('overlay');document.getElementById('viewCart').onclick=()=>{renderCart();overlay.classList.add('show')};document.getElementById('close').onclick=()=>overlay.classList.remove('show');overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('show')});document.addEventListener('keydown',e=>{if(e.key==='Escape')overlay.classList.remove('show')});
 const timing=document.getElementById('orderTiming');
 const scheduleDate=document.getElementById('scheduleDate');
