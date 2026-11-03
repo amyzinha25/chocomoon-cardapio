@@ -9,7 +9,7 @@
 </head>
 <body>
 <header class="hero"><div class="moon">🌙🍪</div><div class="brand">ChocoMoon</div><div class="tagline">COOKIES ARTESANAIS</div><p>Cookies artesanais, macios por dentro, com a crocância perfeita.</p></header>
-<main class="container"><nav class="tabs" aria-label="Categorias"><button class="tab active" data-tab="regular">🍪 Cookies 70 g</button><button class="tab" data-tab="mini">🍪 Mini Cookies</button></nav><h2 class="section-title" id="heading">Cookies 70 g</h2><p class="sub" id="description">Escolha seu cookie favorito ou aproveite nossos combos.</p><section id="products" class="products"></section><p class="note">Imagens ilustrativas até a inclusão das fotos reais. Valores não incluem eventual taxa de entrega.</p></main>
+<main class="container"><nav class="tabs" aria-label="Categorias"><button class="tab active" data-tab="regular">🍪 Cookies 70 g</button><button class="tab" data-tab="mini">🍪 Mini Cookies</button></nav><h2 class="section-title" id="heading">Cookies 70 g</h2><p class="sub" id="description">Escolha seu cookie favorito ou aproveite nossos combos.</p><section id="products" class="products"></section><p class="note">Fotos reais do cookie ChocoMoon. As fotos dos combos são referências do cookie individual; as quantidades são as descritas em cada opção. Mini Cookies ainda sem fotos próprias. Valores não incluem eventual taxa de entrega.</p></main>
 <footer class="bottom"><div class="bag-info"><strong>🛍️ Minha sacola</strong><small id="summary">0 itens · R$ 0,00</small></div><button class="primary" id="viewCart">Ver sacola →</button></footer>
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><div class="modal"><div class="modal-head"><h2 id="cartTitle">🛍️ Sua sacola</h2><button class="close" id="close" aria-label="Fechar">×</button></div><div id="cartItems"></div><div class="total"><span>Subtotal</span><span id="cartTotal">R$ 0,00</span></div><label class="field" for="customer">Seu nome *</label><input class="entry" id="customer" placeholder="Como podemos chamar você?" autocomplete="name"><label class="field" for="fulfillment">Como deseja receber?</label><select class="entry" id="fulfillment"><option>Combinar entrega pelo WhatsApp</option><option>Quero retirar (confirmar disponibilidade)</option></select><label class="field" for="notes">Observações (opcional)</label><textarea class="entry" id="notes" rows="2" placeholder="Ex.: horário preferido, endereço para calcular entrega..."></textarea><button class="primary full" id="checkout">Finalizar pedido no WhatsApp</button><p class="note">O WhatsApp abrirá com a mensagem pronta. O pedido só será enviado quando você confirmar o envio na conversa. Frete e disponibilidade serão confirmados pelo atendimento.</p></div></div>
 <script>
@@ -17,10 +17,10 @@
 const WHATSAPP_LOJA = '5512988590618';
 // Para colocar fotos reais, envie os arquivos ao GitHub e troque o campo foto de cada produto por exemplo: 'fotos/classic.jpg'.
 const produtos=[
-{id:'classic',cat:'regular',nome:'ChocoMoon Classic',desc:'1 cookie artesanal de 70 g',preco:15.90,economia:'',emoji:'🍪',foto:''},
-{id:'duo',cat:'regular',nome:'Duo Moon',desc:'2 cookies de 70 g',preco:29.90,economia:'Economia de R$ 1,90',emoji:'🍪',foto:''},
-{id:'box',cat:'regular',nome:'Moon Box',desc:'4 cookies de 70 g',preco:55.90,economia:'Economia de R$ 7,70',emoji:'📦',foto:''},
-{id:'party',cat:'regular',nome:'Moon Party',desc:'6 cookies de 70 g',preco:79.90,economia:'Economia de R$ 15,50',emoji:'🎁',foto:''},
+{id:'classic',cat:'regular',nome:'ChocoMoon Classic',desc:'1 cookie artesanal de 70 g',preco:15.90,economia:'',emoji:'🍪',foto:'imagens/classic.jpg'},
+{id:'duo',cat:'regular',nome:'Duo Moon',desc:'2 cookies de 70 g',preco:29.90,economia:'Economia de R$ 1,90',emoji:'🍪',foto:'imagens/duo.jpg'},
+{id:'box',cat:'regular',nome:'Moon Box',desc:'4 cookies de 70 g',preco:55.90,economia:'Economia de R$ 7,70',emoji:'📦',foto:'imagens/box.jpg'},
+{id:'party',cat:'regular',nome:'Moon Party',desc:'6 cookies de 70 g',preco:79.90,economia:'Economia de R$ 15,50',emoji:'🎁',foto:'imagens/party.jpg'},
 {id:'mini4',cat:'mini',nome:'4 Mini Cookies',desc:'4 unidades de 15 g · 60 g no total',preco:13.90,economia:'',emoji:'🍪',foto:''},
 {id:'mini6',cat:'mini',nome:'6 Mini Cookies',desc:'6 unidades de 15 g · 90 g no total',preco:19.90,economia:'',emoji:'🍪',foto:''},
 {id:'mini10',cat:'mini',nome:'10 Mini Cookies',desc:'10 unidades de 15 g · 150 g no total',preco:29.90,economia:'',emoji:'🍪',foto:''}
