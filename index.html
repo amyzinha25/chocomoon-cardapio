@@ -86,16 +86,16 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}
 const WHATSAPP_LOJA = '5512988590618';
 // Fotos dos produtos na pasta imagens. Não altere os caminhos sem renomear os arquivos.
 const produtos=[
-{id:'classic',cat:'regular',nome:'ChocoMoon Classic',desc:'1 cookie artesanal de 70 g',preco:15.90,antigo:17.90,foto:'imagens/classic.jpg'},
-{id:'duo',cat:'regular',nome:'Duo Moon',desc:'2 cookies artesanais de 70 g cada',preco:29.90,antigo:35.80,foto:'imagens/duo.jpg'},
-{id:'box',cat:'regular',nome:'Moon Box',desc:'4 cookies artesanais de 70 g cada',preco:55.90,antigo:71.90,foto:'imagens/box.jpg'},
-{id:'party',cat:'regular',nome:'Moon Party',desc:'6 cookies artesanais de 70 g cada',preco:79.90,antigo:107.40,foto:'imagens/party.jpg'},
+{id:'classic',cat:'regular',nome:'ChocoMoon Classic',desc:'1 Cookie Tradicional Artesanal de 70 g',preco:15.90,antigo:17.90,foto:'imagens/classic.jpg'},
+{id:'duo',cat:'regular',nome:'Duo Moon',desc:'2 Cookies Tradicional Artesanais de 70 g cada',preco:29.90,antigo:35.80,foto:'imagens/duo.jpg'},
+{id:'box',cat:'regular',nome:'Moon Box',desc:'4 Cookies Tradicional Artesanais artesanais de 70 g cada',preco:55.90,antigo:71.90,foto:'imagens/box.jpg'},
+{id:'party',cat:'regular',nome:'Moon Party',desc:'6 Cookies Tradicional Artesanais artesanais de 70 g cada',preco:79.90,antigo:107.40,foto:'imagens/party.jpg'},
 {id:'coca-lata',cat:'bebidas',nome:'Coca-Cola Original',desc:'Lata 220 ml',preco:5.90,foto:'imagens/coca-lata.jpg'},
 {id:'coca-zero',cat:'bebidas',nome:'Coca-Cola Zero',desc:'Garrafinha PET 200 ml',preco:5.90,foto:'imagens/coca-zero.jpg'},
-{id:'combo-original',cat:'bebidas',nome:'Combo Moon Original',desc:'1 cookie 70 g + Coca-Cola Original lata 220 ml',preco:20.40,antigo:23.80,foto:'imagens/combo-original.jpg'},
-{id:'combo-zero',cat:'bebidas',nome:'Combo Moon Zero',desc:'1 cookie 70 g + Coca-Cola Zero garrafinha 200 ml',preco:20.40,antigo:23.80,foto:'imagens/combo-zero.jpg'},
-{id:'duo-original',cat:'bebidas',nome:'Combo Duo Original',desc:'2 cookies 70 g + Coca-Cola Original lata 220 ml',preco:34.40,antigo:41.70,foto:'imagens/duo-original.jpg'},
-{id:'duo-zero',cat:'bebidas',nome:'Combo Duo Zero',desc:'2 cookies 70 g + Coca-Cola Zero garrafinha 200 ml',preco:34.40,antigo:41.70,foto:'imagens/duo-zero.jpg'}
+{id:'combo-original',cat:'bebidas',nome:'Combo Moon Original',desc:'1 Cookie Tradicional Artesanal 70 g + Coca-Cola Original lata 220 ml',preco:20.40,antigo:23.80,foto:'imagens/combo-original.jpg'},
+{id:'combo-zero',cat:'bebidas',nome:'Combo Moon Zero',desc:'1 Cookie Tradicional Artesanal 70 g + Coca-Cola Zero garrafinha 200 ml',preco:20.40,antigo:23.80,foto:'imagens/combo-zero.jpg'},
+{id:'duo-original',cat:'bebidas',nome:'Combo Duo Original',desc:'2 Cookies Tradicional Artesanais 70 g + Coca-Cola Original lata 220 ml',preco:34.40,antigo:41.70,foto:'imagens/duo-original.jpg'},
+{id:'duo-zero',cat:'bebidas',nome:'Combo Duo Zero',desc:'2 Cookies Tradicional Artesanais 70 g + Coca-Cola Zero garrafinha 200 ml',preco:34.40,antigo:41.70,foto:'imagens/duo-zero.jpg'}
 ];
 const money=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 let categoria='regular';let sacola={};try{sacola=JSON.parse(localStorage.getItem('chocomoon-sacola'))||{}}catch(e){}
